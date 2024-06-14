@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="mt-4">Imágenes:</h2>
+        <ul class="list-group mt-3">
+            {% for image in images %}
+            <li class="list-group-item">
+                <a href="{{ image.image.url }}">{{ image.title }}</a>
+                <span>
+                    <a href="{% url 'delete_file' file_type='image' file_id=image.id %}" onclick="return confirmDelete();" class="btn btn-sm btn-danger">Delete</a>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        <h2 class="mt-4">Vídeos:</h2>
+        <ul class="list-group mt-3">
+            {% for video in videos %}
+            <li class="list-group-item">
+                <a href="{{ video.video_file.url }}">{{ video.title }}</a>
+                <span>
+                    <a href="{% url 'delete_file' file_type='video' file_id=video.id %}" onclick="return confirmDelete();" class="btn btn-sm btn-danger">Delete</a>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        <h2 class="mt-4">Documentos:</h2>
+        <ul class="list-group mt-3">
+            {% for document in documents %}
+            <li class="list-group-item">
+                <a href="{{ document.document_file.url }}">{{ document.title }}</a>
+                <span>
+                    <a href="{% url 'delete_file' file_type='document' file_id=document.id %}" onclick="return confirmDelete();" class="btn btn-sm btn-danger">Delete</a>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}

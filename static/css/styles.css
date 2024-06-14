@@ -1,0 +1,25 @@
+/* styles.css */
+
+/* Estilos personalizados */
+body {
+    padding-top: 4rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    padding: 10px 0;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    margin-bottom: 20px;
+}
+
